@@ -32,6 +32,16 @@ public:
 		is_blooming = is_bloom;
 	}
 
+	//copy-constructor / constructor with arguments
+	Flower(const Flower& flower) {
+		name = flower.name;
+		color = flower.color;
+		region = flower.region;
+		price = flower.price;
+		freshness_days = flower.freshness_days;
+		is_blooming = flower.is_blooming;
+	}
+
 	string toString() {
 		string s = "Flower: ";
 		s += "name = " + name;
