@@ -4,24 +4,17 @@ using namespace std;
 
 class Flower {
 public:
-	string name;
-	string color;
-	string region;
-	double price;
-	int freshness_days;
-	bool is_blooming;
-	int* store_ids;
+	string name = "";
+	string color = "";
+	string region = "";
+	double price = 0.0;
+	int freshness_days = 0;
+	bool is_blooming = 0;
+	int* store_ids = nullptr;
 
 	//default constructor / constructor without arguments
-	Flower() {
-		name = "";
-		color = "";
-		region = "";
-		price = 0.0;
-		freshness_days = 0;
-		is_blooming = 0;
-		store_ids = new int[3] {};
-	}
+	Flower() = default ;
+	
 
 	//canonical constructor / constructor with arguments
 	Flower(string nm, string clr, string rgn, 
