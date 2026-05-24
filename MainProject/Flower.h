@@ -10,6 +10,7 @@ public:
 	double price;
 	int freshness_days;
 	bool is_blooming;
+	int* store_ids;
 
 	//default constructor / constructor without arguments
 	Flower() {
@@ -19,6 +20,7 @@ public:
 		price = 0.0;
 		freshness_days = 0;
 		is_blooming = 0;
+		store_ids = new int[3] {};
 	}
 
 	//canonical constructor / constructor with arguments
@@ -40,10 +42,17 @@ public:
 		price = flower.price;
 		freshness_days = flower.freshness_days;
 		is_blooming = flower.is_blooming;
+		store_ids = new int[3] {flower.store_ids[0],
+			flower.store_ids[1], 
+			flower.store_ids[2]};
 	}
 
 	~Flower() {
-		//some code here
+		cout << "Store connections for " << name 
+			<< " have been severed and memory has been cleared." << endl;
+		if (store_ids != NULL) {
+			delete[] store_ids;
+		}
 	}
 
 	string toString() {
