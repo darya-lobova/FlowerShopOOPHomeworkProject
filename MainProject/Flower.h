@@ -25,13 +25,21 @@ public:
 
 	//canonical constructor / constructor with arguments
 	Flower(string nm, string clr, string rgn, 
-		double prc, int fresh_days, bool is_bloom) {
+		double prc, int fresh_days, bool is_bloom, int* store_arr) {
 		name = nm;
 		color = clr;
 		region = rgn;
 		price = prc;
 		freshness_days = fresh_days;
 		is_blooming = is_bloom;
+		store_ids = new int[3] {};
+
+		if (store_arr != nullptr) {
+			for (int i = 0; i < 3; i++)
+			{
+				store_ids[i] = store_arr[i];
+			}
+		}
 	}
 
 	//copy-constructor / constructor with arguments
@@ -48,8 +56,6 @@ public:
 	}
 
 	~Flower() {
-		cout << "Store connections for " << name 
-			<< " have been severed and memory has been cleared." << endl;
 		if (store_ids != NULL) {
 			delete[] store_ids;
 		}
@@ -64,6 +70,8 @@ public:
 		s += ", days in vase = " + to_string(freshness_days);
 		s += ", is blooming? = ";
 		s += (is_blooming ? "yes" : "no");
+		s += ", store ids = {" + to_string(store_ids[0]) + ", " + to_string(store_ids[1])
+			+ ", " + to_string(store_ids[2]) + "}";
 
 		return s;
 	}
