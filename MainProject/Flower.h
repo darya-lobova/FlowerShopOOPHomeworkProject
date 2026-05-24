@@ -6,11 +6,11 @@ class Flower {
 public:
 	string name = "";
 	string color = "";
-	string region = "";
-	double price = 0.0;
-	int freshness_days = 0;
-	bool is_blooming = 0;
-	int* store_ids = nullptr;
+	string region = "";  //origin
+	double price = 0.0;  //price in dollars
+	int freshness_days = 0;  //days in vase
+	bool is_blooming = 0; 
+	int* store_ids = nullptr; //ids of stores wich sell this type of flower
 
 	//default constructor / constructor without arguments
 	Flower() = default ;
