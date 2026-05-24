@@ -42,6 +42,10 @@ public:
 		is_blooming = flower.is_blooming;
 	}
 
+	~Flower() {
+		//some code here
+	}
+
 	string toString() {
 		string s = "Flower: ";
 		s += "name = " + name;
